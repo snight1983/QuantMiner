@@ -6,7 +6,7 @@ add_compile_options("/std:c++20")
 
 project ("QuantMiner")
 
-add_executable (QuantMiner "QuantMiner.cpp" "QuantMiner.h" "Config.h" "Config.cpp")
+add_executable (QuantMiner "QuantMiner.cpp" "QuantMiner.h" "Config.h" "Config.cpp" "db/CDBBase.h" "db/CDBBase.cpp" "db/CStockMiner.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET QuantMiner PROPERTY CXX_STANDARD 20)

@@ -1,17 +1,15 @@
 #include "Config.h"
 #include <stdio.h>
 #include <iostream>
-
 #include <json/json.h>
 #include <fstream>
-
 #include <filesystem>
 #include <glog/logging.h>
 namespace fs = std::filesystem;
 
-Config*  Config::m_pObj = nullptr;
+CConfig* CConfig::m_pObj = nullptr;
 
-Config::Config() {
+CConfig::CConfig() {
 	fs::path lsPath = fs::current_path();
 	lsPath.append("config.json");
 	if (!fs::exists(lsPath)) { 
@@ -43,34 +41,34 @@ Config::Config() {
 	LOG(INFO) << "HFQ DB " << m_sHfqDBPath;
 }
 
-Config::~Config() {
+CConfig::~CConfig() {
 
 }
-Config* Config::GetConfig() {
+CConfig* CConfig::GetConfig() {
 	if (nullptr == m_pObj) {
-		m_pObj = new Config();
+		m_pObj = new CConfig();
 	}
 	return m_pObj;
 }
 
-std::string Config::GetBfqDbPath() {
-	Config* obj = Config::GetConfig();
+std::string CConfig::GetBFQDbPath() {
+	CConfig* obj = CConfig::GetConfig();
 	if (nullptr != obj){
 		return obj->m_sBfqDBPath;
 	}
 	return "";
 }
 
-std::string Config::GetQFQDbPath() {
-	Config* obj = Config::GetConfig();
+std::string CConfig::GetQFQDbPath() {
+	CConfig* obj = CConfig::GetConfig();
 	if (nullptr != obj) {
 		return obj->m_sQfqDBPath;
 	}
 	return "";
 }
 
-std::string Config::GetHFQDbPath() {
-	Config* obj = Config::GetConfig();
+std::string CConfig::GetHFQDbPath() {
+	CConfig* obj = CConfig::GetConfig();
 	if (nullptr != obj) {
 		return obj->m_sHfqDBPath;
 	}

@@ -2,18 +2,18 @@
 #define H_CONFIG
 #include <string>
 
-class Config {
+class CConfig {
 public:
-	~Config();
-	static Config* GetConfig();
+	~CConfig();
+	static CConfig* GetConfig();
 public:
-	static std::string GetBfqDbPath();
+	static std::string GetBFQDbPath();
 	static std::string GetQFQDbPath();
 	static std::string GetHFQDbPath();
 private:
-	Config();
+	CConfig();
 private:
-	static Config* m_pObj;
+	static CConfig* m_pObj;
 	std::string m_sBfqDBPath;
 	std::string m_sQfqDBPath;
 	std::string m_sHfqDBPath;
